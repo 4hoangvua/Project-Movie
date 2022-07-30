@@ -16,7 +16,7 @@ function App() {
       <Suspense fallback={<h1>4hoangvua...</h1>}>
         <Router>
           <Routes>
-            <Route index element={<HomeTemplates />} />
+            <Route path="/" element={<HomeTemplates />} />
             <Route path="signin" element={<Login />} />
             <Route path="register" element={<Register />} />
             <Route path="movie-detail/:maPhim" element={<MovieDetail />} />
