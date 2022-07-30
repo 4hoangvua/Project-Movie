@@ -11,7 +11,7 @@ const ListMovie = ({ theme }) => {
   };
   return (
     <>
-      <RowMovie>
+      <RowMovie id="community">
         {listMovie.map((movie, index) => {
           return <ItemMovie key={index} movie={movie} />;
         })}

@@ -1,8 +1,14 @@
 import React from "react";
 import { AiOutlineHome, AiOutlineClockCircle } from "react-icons/ai";
 import { RiCommunityFill, RiCompassDiscoverLine } from "react-icons/ri";
-import { SideMenu, SideList, SideLogo, SideItem } from "./SidebarElement";
-const Sidebar = ({ theme }) => {
+import {
+  SideMenu,
+  SideList,
+  SideLogo,
+  SideItem,
+  SideLogin,
+} from "./SidebarElement";
+const Sidebar = () => {
   return (
     <>
       <SideMenu>
@@ -12,7 +18,7 @@ const Sidebar = ({ theme }) => {
             <SideLogo>
               <AiOutlineHome />
             </SideLogo>
-            <a href="#">
+            <a href="#home">
               <p>Home</p>
             </a>
           </SideItem>
@@ -20,7 +26,7 @@ const Sidebar = ({ theme }) => {
             <SideLogo>
               <RiCommunityFill />
             </SideLogo>
-            <a href="#">
+            <a href="#community">
               <p>Community</p>
             </a>
           </SideItem>
@@ -28,7 +34,7 @@ const Sidebar = ({ theme }) => {
             <SideLogo>
               <RiCompassDiscoverLine />
             </SideLogo>
-            <a href="#">
+            <a href="#discovery">
               <p>Discovery</p>
             </a>
           </SideItem>
@@ -36,9 +42,12 @@ const Sidebar = ({ theme }) => {
             <SideLogo>
               <AiOutlineClockCircle />
             </SideLogo>
-            <a href="#">
+            <a href="#coming">
               <p>Coming soon</p>
             </a>
+          </SideItem>
+          <SideItem>
+            <SideLogin to="signin">Login</SideLogin>
           </SideItem>
         </SideList>
       </SideMenu>

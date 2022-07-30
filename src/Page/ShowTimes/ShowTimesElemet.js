@@ -1,10 +1,14 @@
 import styled from "styled-components";
-
+import { device } from "../../common/device";
+import { Link } from "react-router-dom";
 export const ContainerShowTime = styled.div`
   height: 45rem;
   background: #fff;
   max-height: 45rem;
   width: 100%;
+  @media ${device.tablet} {
+    display: none;
+  }
 `;
 export const Row = styled.div`
   width: 100%;
@@ -40,17 +44,21 @@ export const ColShowTime = styled.div`
 `;
 export const ContainerLogo = styled.div`
   padding: 10px;
-  width: 100%;
+  width: 6.25rem;
   height: 6.25rem;
   cursor: pointer;
   border-right: ${({ isActive }) => (isActive ? `2px solid #d6413a` : "none")};
   &:active {
     transform: scale(0.9);
   }
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 export const Logo = styled.img`
-  width: 100%;
-  height: 100%;
+  width: 60%;
+  height: 60%;
+  object-fit: cover;
 `;
 export const ListTheaterInfo = styled.div`
   width: 100%;
@@ -63,8 +71,22 @@ export const ListTheaterInfo = styled.div`
     transform: scale(0.9);
   }
 `;
-export const NameTheater = styled.p`
+export const NameTheater = styled.abbr.attrs((props) => ({
+  title: props.nameTheater,
+}))`
+  flex: 1;
+  font-style: italic;
   color: ${({ theme }) => theme.c.secondary};
+  &[title] {
+    text-decoration: none !important;
+    cursor: default !important;
+  }
+  h4 {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    font-size: medium;
+  }
 `;
 export const AddressTheater = styled.p`
   font-size: small;
@@ -112,11 +134,11 @@ export const ItemContent = styled.div`
 `;
 export const ShowTimesTheater = styled.div`
   display: flex;
-  justify-content: left;
+  justify-content: space-between;
   align-items: left;
   flex-wrap: wrap;
 `;
-export const Title = styled.p`
+export const Title = styled.div`
   font-size: 1rem;
   font-weight: bold;
   color: ${({ theme }) => theme.c.primary};
@@ -133,15 +155,17 @@ export const ItemTime = styled.div`
     transform: scale(1.08);
   }
 `;
-export const Item = styled.div`
-  font-size: small;
+export const Item = styled(Link)`
+  font-size: 0.8rem;
   border: 5px solid ${({ theme }) => theme.bg.primary};
   border-radius: 10px;
   padding: 5px;
+  display: block;
+  text-decoration: none;
 `;
 export const Col = styled.div`
   padding: 5px;
-  margin-bottom: 15px;
+  margin-bottom: 0.625rem;
   width: 100%;
 `;
 

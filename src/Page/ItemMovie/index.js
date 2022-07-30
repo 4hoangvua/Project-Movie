@@ -42,7 +42,7 @@ const ItemMovie = ({ movie }) => {
                   <LogoPlay onClick={() => setShowModal(!showModal)} />
                 </CardPlay>
                 <CardBooking>
-                  <Booking to="movie-detail">Booking</Booking>
+                  <Booking to={`movie-detail/${movie.maPhim}`}>Booking</Booking>
                 </CardBooking>
               </>
             )}
@@ -56,7 +56,7 @@ const ItemMovie = ({ movie }) => {
                 ))}
               </DescStart>
               <Content nameMovie={movie.tenPhim}>
-                <p>{movie.tenPhim}</p>
+                <p>{movie.tenPhim.toUpperCase()}</p>
               </Content>
             </ContainerContent>
           </CardContent>

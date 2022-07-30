@@ -4,11 +4,12 @@ export const SideMenu = styled.div`
   & > p {
     color: ${({ theme }) => theme.c.primary};
     opacity: 0.7;
+    position: unset !important;
   }
 `;
 export const SideList = styled.ul`
   list-style: none;
-  padding: 0 15px 0 0;
+  padding: 0 1rem 0 0;
 `;
 export const SideLogo = styled.div`
   font-size: 1.5625rem;
@@ -26,6 +27,7 @@ export const SideItem = styled.li`
     opacity: 0.7;
     margin-top: 1.3125rem;
     padding-left: 1rem;
+    display: block;
   }
 
   &:hover {

@@ -27,5 +27,34 @@ const movieAPI = {
       },
     });
   },
+  getThongTinLichChieuPhim: (maPhim) => {
+    return axiosClient.get("QuanLyRap/LayThongTinLichChieuPhim", {
+      params: {
+        maPhim: maPhim,
+      },
+    });
+  },
+  getDanhSachPhim: (id) => {
+    return axiosClient.get("QuanLyPhim/LayDanhSachPhim", {
+      params: {
+        maNhom: id,
+      },
+    });
+  },
+  getInfoTicket: (timeTheater) => {
+    return axiosClient.get("QuanLyDatVe/LayDanhSachPhongVe", {
+      params: {
+        maLichChieu: timeTheater,
+      },
+    });
+  },
+  accountUser: (info) => {
+    return axiosClient.post("QuanLyNguoiDung/DangNhap", info);
+  },
+  userRegister: (info) => {
+    return axiosClient.post("QuanLyNguoiDung/DangKy", {
+      ...info,
+    });
+  },
 };
 export default movieAPI;

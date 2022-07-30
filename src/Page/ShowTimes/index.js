@@ -42,9 +42,10 @@ const ShowTimes = () => {
     dispatch(showMovieTheater(listMovie));
     setIsActiveTheater({ activeTheater: index });
   };
+
   return (
     <>
-      <ContainerShowTime>
+      <ContainerShowTime id="discovery">
         <Row>
           <ColLogo>
             {listTheaterInfo.map((list, index) => {
@@ -88,14 +89,18 @@ const ShowTimes = () => {
                     />
                   </ItemImage>
                   <ItemContent>
-                    <Title>{movie.tenPhim}</Title>
+                    <Title>
+                      {movie.tenPhim.length > 15
+                        ? movie.tenPhim.substring(0, 15) + "..."
+                        : movie.tenPhim}
+                    </Title>
                     <ShowTimesTheater>
                       {movie.lstLichChieuTheoPhim.map((time, index) => {
                         if (index > 3) return;
                         return (
                           <ItemTime key={index}>
                             <Col>
-                              <Item>
+                              <Item to={`ticket/${time.maLichChieu}`}>
                                 {
                                   <>
                                     <ItemDate>

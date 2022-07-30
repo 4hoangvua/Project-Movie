@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
+import ModalSibar from "../modals/ModalSibar";
 import {
   Nav,
   NavLogo,
@@ -6,8 +7,15 @@ import {
   Content,
   NavList,
   NavItem,
-} from "./NavbarElelement";
+  NavContainer,
+  NavToggle,
+  Toggle,
+} from "./NavbarElement";
 const NavBar = () => {
+  const [showModal, setShowModal] = useState(false);
+  const handleToggle = () => {
+    setShowModal(!showModal);
+  };
   return (
     <>
       <Nav>
@@ -16,10 +24,20 @@ const NavBar = () => {
           <Content>Exxmon</Content>
         </NavLogo>
         <NavList>
-          <NavItem href="#">TV Series</NavItem>
-          <NavItem href="#">Movies</NavItem>
-          <NavItem href="#">Animes</NavItem>
+          <NavContainer>
+            <NavItem href="#" disabled={true}>
+              TV Series
+            </NavItem>
+            <NavItem href="#">Movies</NavItem>
+            <NavItem href="#" disabled={true}>
+              Animes
+            </NavItem>
+          </NavContainer>
+          <NavToggle onClick={handleToggle}>
+            <Toggle></Toggle>
+          </NavToggle>
         </NavList>
+        <ModalSibar showModal={showModal} setShowModal={setShowModal} />
       </Nav>
     </>
   );
